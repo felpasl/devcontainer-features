@@ -1,0 +1,16 @@
+{
+  "id": "claude-auth",
+  "version": "1.1.0",
+  "name": "Claude Code auth (shared from WSL)",
+  "description": "Bind-mounts the host ~/.claude config into the container and points CLAUDE_CONFIG_DIR at it.",
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}/.claude",
+      "target": "/opt/claude-config",
+      "type": "bind"
+    }
+  ],
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/opt/claude-config"
+  }
+}
